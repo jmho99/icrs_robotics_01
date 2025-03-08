@@ -2,5 +2,5 @@
 
 ### UR ROBOT Driver / Description 불러오기기
 
-    vcs import src --skip-existing --input src/pick_and_place/pick_and_place.${ROS_DISTRO}.repos
+    vcs import src --skip-existing --input src/icrs_pick_and_place/icrs_pick_and_place.${ROS_DISTRO}.repos
 

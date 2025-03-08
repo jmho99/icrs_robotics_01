@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ur_pick_and_place_moveit</name>
+  <name>icrs_pick_and_place</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="khc@tesollo.com">hong</maintainer>
-  <license>BSD</license>
+  <maintainer email="bwve6g@gmail.com">icrs</maintainer>
+  <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
