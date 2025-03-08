@@ -92,7 +92,7 @@ def generate_launch_description():
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
     demo_node = Node(
-        package="ur_pick_and_place_moveit",
+        package="icrs_pick_and_place",
         executable="teamproject_01",
         name="teamproject_01",
         output="screen",
