@@ -8,7 +8,7 @@
 #include <std_msgs/msg/float32_multi_array.hpp>
 
 #define PI 3.14159265358979
-//건들이지 마세요**********************************************************************
+//Do not edit this part**********************************************************************
 void make_Collision(moveit::planning_interface::PlanningSceneInterface planning_scene_interface)
 {
     // Make collosion to appropriate path planning start
@@ -187,7 +187,7 @@ void make_Collision(moveit::planning_interface::PlanningSceneInterface planning_
     planning_scene_interface.applyCollisionObjects(collision_objects);
     // Make collosion to appropriate path planning finish
 }
-//건들이지 마세요**********************************************************************
+//Do not edit this part**********************************************************************
 void moveToTarget(moveit::planning_interface::MoveGroupInterface& move_group_arm, const std::string& target) {
     moveit::planning_interface::MoveGroupInterface::Plan my_plan;
     move_group_arm.setWorkspace( -0.6, -0.3, -0.2, 0.6, 1.3, 1.3);
@@ -200,10 +200,10 @@ void moveToTarget(moveit::planning_interface::MoveGroupInterface& move_group_arm
     move_group_arm.setStartStateToCurrentState();
 
 }
-//건들이지 마세요**********************************************************************
+//Do not edit this part**********************************************************************
 int main(int argc, char *argv[])
 {
-//건들이지 마세요**********************************************************************
+//Do not edit this part**********************************************************************
     // Create a ROS logger
     auto const LOGGER = rclcpp::get_logger("ur_pick_and_place_moveit");
 
@@ -263,13 +263,13 @@ int main(int argc, char *argv[])
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
     moveToTarget(move_group_arm, "set_home");
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
-//건들이지 마세요*********************************************************************
+//Do not edit this part*********************************************************************
 
-//작성해야 하는 부분 시작*******************************************************************************************
+//Start editing*******************************************************************************************
     //----------------------------------------------------------------------
     RCLCPP_INFO(LOGGER, "Going point1------------------------------------");
 
-    //입력 부분 - 라디안 값 입력 / 라디안 변환식으로 입력
+    //Editing part - Input [radian] value or Input degre to radian formula
     joint_group_positions_arm[0] =  (36) *(PI/180); // Base
     joint_group_positions_arm[1] = (-59) *(PI/180); // Shoulder
     joint_group_positions_arm[2] = (84) *(PI/180); // Elbow
@@ -279,17 +279,17 @@ int main(int argc, char *argv[])
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_1");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
     //-----------------------------------------------------------------------
 
-//물체 잡기--------------------------------------
+//Pick object--------------------------------------
     move_group_arm.attachObject("water_cup", "tool0");
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
 //-------------------------------------------------
- 
+
     //-----------------------------------------------------------------------
     RCLCPP_INFO(LOGGER, "Going point2------------------------------------");
 
@@ -301,8 +301,8 @@ int main(int argc, char *argv[])
     joint_group_positions_arm[5] = (4) *(PI/180);  // Wrist 3
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
-    
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_2");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
@@ -320,7 +320,7 @@ int main(int argc, char *argv[])
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_3");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
@@ -338,7 +338,7 @@ int main(int argc, char *argv[])
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_4");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
@@ -356,7 +356,7 @@ int main(int argc, char *argv[])
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_5");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
@@ -365,7 +365,7 @@ int main(int argc, char *argv[])
     //----------------------------------------------------------------------------
     RCLCPP_INFO(LOGGER, "Going point6------------------------------------");
 
-    //입력 부분 - 라디안 값 입력 / 라디안 변환식으로 입력
+    //Editing part - Input [radian] value or Input degre to radian formula
     joint_group_positions_arm[0] =  (36) *(PI/180); // Base
     joint_group_positions_arm[1] = (-59) *(PI/180); // Shoulder
     joint_group_positions_arm[2] = (84) *(PI/180); // Elbow
@@ -375,18 +375,18 @@ int main(int argc, char *argv[])
 
     move_group_arm.setJointValueTarget(joint_group_positions_arm);
 
-    //입력 부분 - my_plan_arm0에서 숫자 하나씩 올리기
+    //Editing part - Increase the number by one at "my_plan_arm_1"
     moveToTarget(move_group_arm, "my_plan_arm_6");
 
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
     //-----------------------------------------------------------------------------
 
-//물체 놓기-----------------------------------------
+//Place object-----------------------------------------
     move_group_arm.detachObject("water_cup");
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
 //-------------------------------------------------
 
-//작성해야 하는 부분 끝****************************************************************************************
+//End editing****************************************************************************************
     RCLCPP_INFO(LOGGER, "Going Back Home-------------------------------------");
 
     joint_group_positions_arm[0] = 0.00;      // Base

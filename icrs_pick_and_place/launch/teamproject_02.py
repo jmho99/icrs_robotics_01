@@ -86,7 +86,7 @@ def get_robot_description_semantic():
         "robot_description_semantic": robot_description_semantic_content
     }
     return robot_description_semantic
-    
+
 def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()
