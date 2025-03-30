@@ -11,35 +11,35 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 
 
-add_executable(teamproject_01 src/teamproject_01.cpp)
+add_executable(teamproject_test src/teamproject_test.cpp)
 
-target_include_directories(teamproject_01 PUBLIC
+target_include_directories(teamproject_test PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(teamproject_01 PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(teamproject_test PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
-  teamproject_01
+  teamproject_test
   "moveit_ros_planning_interface"
   "rclcpp"
 )
 
-install(TARGETS teamproject_01
+install(TARGETS teamproject_test
   DESTINATION lib/${PROJECT_NAME}/
 )
 
-add_executable(teamproject_02 src/teamproject_02.cpp)
+add_executable(teamproject_main src/teamproject_main.cpp)
 
-target_include_directories(teamproject_02 PUBLIC
+target_include_directories(teamproject_main PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(teamproject_02 PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(teamproject_main PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
-  teamproject_02
+  teamproject_main
   "moveit_ros_planning_interface"
   "rclcpp"
 )
 
-install(TARGETS teamproject_02
+install(TARGETS teamproject_main
   DESTINATION lib/${PROJECT_NAME}/
 )
 

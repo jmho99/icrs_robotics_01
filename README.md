@@ -15,7 +15,7 @@
     ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur5
 
 ### 로봇 동작 테스트 파일 실행
-    ros2 launch icrs_ur_pick_and_place teamproject_01.py
+    ros2 launch icrs_pick_and_place teamproject_test.py
 
 ### 팀프로젝트 수행 파일 실행
-    ros2 launch icrs_ur_pick_and_place teamproject_02.py
+    ros2 launch icrs_pick_and_place teamproject_main.py

@@ -93,8 +93,8 @@ def generate_launch_description():
     robot_description_semantic = get_robot_description_semantic()
     demo_node = Node(
         package="icrs_pick_and_place",
-        executable="teamproject_02",
-        name="teamproject_02",
+        executable="teamproject_main",
+        name="teamproject_main",
         output="screen",
         parameters=[
             robot_description,

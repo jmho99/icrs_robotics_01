@@ -85,7 +85,7 @@ void make_Collision(moveit::planning_interface::PlanningSceneInterface planning_
 
     collision_objects[3].header.frame_id = "base_link";
     collision_objects[3].id = "ur_floor";
-       
+
      /* Define the primitive and its dimensions. */
     collision_objects[3].primitives.resize(1);
     collision_objects[3].primitives[0].type = collision_objects[1].primitives[0].BOX;
@@ -100,11 +100,11 @@ void make_Collision(moveit::planning_interface::PlanningSceneInterface planning_
     collision_objects[3].primitive_poses[0].position.y = 0.25;
     collision_objects[3].primitive_poses[0].position.z = -0.45;
     collision_objects[3].primitive_poses[0].orientation.w = 0.0;
-    
+
     // END_SUB_TUTORIAL
 
-    collision_objects[3].operation = collision_objects[3].ADD;   
-    
+    collision_objects[3].operation = collision_objects[3].ADD;
+
     collision_objects[4].header.frame_id = "base_link";
     collision_objects[4].id = "water_cup";
 
@@ -182,7 +182,7 @@ void make_Collision(moveit::planning_interface::PlanningSceneInterface planning_
     collision_objects[7].primitive_poses[0].orientation.w = 1.0;
 
     collision_objects[7].operation = collision_objects[7].ADD;
-    
+
 
     planning_scene_interface.applyCollisionObjects(collision_objects);
     // Make collosion to appropriate path planning finish
@@ -205,13 +205,13 @@ int main(int argc, char *argv[])
 {
 //Do not edit this part**********************************************************************
     // Create a ROS logger
-    auto const LOGGER = rclcpp::get_logger("ur_pick_and_place_moveit");
+    auto const LOGGER = rclcpp::get_logger("teamproject_main");
 
     rclcpp::init(argc, argv);
     rclcpp::NodeOptions node_options;
     node_options.automatically_declare_parameters_from_overrides(true);
     auto move_group_node =
-        rclcpp::Node::make_shared("ur_pick_and_place_moveit", node_options);
+        rclcpp::Node::make_shared("teamproject_main", node_options);
 
     rclcpp::sleep_for(std::chrono::nanoseconds(100000000));
 
@@ -221,7 +221,7 @@ int main(int argc, char *argv[])
                 { executor.spin(); })
         .detach();
 
-    
+
     static const std::string PLANNING_GROUP_ARM = "ur_manipulator";
 
     moveit::planning_interface::MoveGroupInterface move_group_arm(
@@ -289,97 +289,6 @@ int main(int argc, char *argv[])
     move_group_arm.attachObject("water_cup", "tool0");
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
 //-------------------------------------------------
-
-    //-----------------------------------------------------------------------
-    RCLCPP_INFO(LOGGER, "Going point2------------------------------------");
-
-    joint_group_positions_arm[0] =  (36) *(PI/180); // Base
-    joint_group_positions_arm[1] = (-63) *(PI/180); // Shoulder
-    joint_group_positions_arm[2] = (81) *(PI/180); // Elbow
-    joint_group_positions_arm[3] = (-25) *(PI/180); // Wrist 1
-    joint_group_positions_arm[4] =  (34) *(PI/180); // Wrist 2
-    joint_group_positions_arm[5] = (4) *(PI/180);  // Wrist 3
-
-    move_group_arm.setJointValueTarget(joint_group_positions_arm);
-
-    //Editing part - Increase the number by one at "my_plan_arm_1"
-    moveToTarget(move_group_arm, "my_plan_arm_2");
-
-    rclcpp::sleep_for(std::chrono::milliseconds(1000));
-    //------------------------------------------------------------------------
-
-    //------------------------------------------------------------------------
-    RCLCPP_INFO(LOGGER, "Going point3------------------------------------");
-
-    joint_group_positions_arm[0] =  (114) *(PI/180); // Base
-    joint_group_positions_arm[1] = (-68) *(PI/180); // Shoulder
-    joint_group_positions_arm[2] = (101) *(PI/180); // Elbow
-    joint_group_positions_arm[3] = (-37) *(PI/180); // Wrist 1
-    joint_group_positions_arm[4] =  (111) *(PI/180); // Wrist 2
-    joint_group_positions_arm[5] = (-4) *(PI/180);  // Wrist 3
-
-    move_group_arm.setJointValueTarget(joint_group_positions_arm);
-
-    //Editing part - Increase the number by one at "my_plan_arm_1"
-    moveToTarget(move_group_arm, "my_plan_arm_3");
-
-    rclcpp::sleep_for(std::chrono::milliseconds(1000));
-    //-------------------------------------------------------------------------
-
-    //-------------------------------------------------------------------------
-    RCLCPP_INFO(LOGGER, "Going point4------------------------------------");
-
-    joint_group_positions_arm[0] =  (114) *(PI/180); // Base
-    joint_group_positions_arm[1] = (-68) *(PI/180); // Shoulder
-    joint_group_positions_arm[2] = (101) *(PI/180); // Elbow
-    joint_group_positions_arm[3] = (-37) *(PI/180); // Wrist 1
-    joint_group_positions_arm[4] =  (111) *(PI/180); // Wrist 2
-    joint_group_positions_arm[5] = (-113) *(PI/180);  // Wrist 3
-
-    move_group_arm.setJointValueTarget(joint_group_positions_arm);
-
-    //Editing part - Increase the number by one at "my_plan_arm_1"
-    moveToTarget(move_group_arm, "my_plan_arm_4");
-
-    rclcpp::sleep_for(std::chrono::milliseconds(1000));
-    //--------------------------------------------------------------------------
-
-    //--------------------------------------------------------------------------
-    RCLCPP_INFO(LOGGER, "Going point5------------------------------------");
-
-    joint_group_positions_arm[0] =  (36) *(PI/180); // Base
-    joint_group_positions_arm[1] = (-63) *(PI/180); // Shoulder
-    joint_group_positions_arm[2] = (81) *(PI/180); // Elbow
-    joint_group_positions_arm[3] = (-25) *(PI/180); // Wrist 1
-    joint_group_positions_arm[4] =  (34) *(PI/180); // Wrist 2
-    joint_group_positions_arm[5] = (4) *(PI/180);  // Wrist 3
-
-    move_group_arm.setJointValueTarget(joint_group_positions_arm);
-
-    //Editing part - Increase the number by one at "my_plan_arm_1"
-    moveToTarget(move_group_arm, "my_plan_arm_5");
-
-    rclcpp::sleep_for(std::chrono::milliseconds(1000));
-    //----------------------------------------------------------------------------
-
-    //----------------------------------------------------------------------------
-    RCLCPP_INFO(LOGGER, "Going point6------------------------------------");
-
-    //Editing part - Input [radian] value or Input degre to radian formula
-    joint_group_positions_arm[0] =  (36) *(PI/180); // Base
-    joint_group_positions_arm[1] = (-59) *(PI/180); // Shoulder
-    joint_group_positions_arm[2] = (84) *(PI/180); // Elbow
-    joint_group_positions_arm[3] = (-32) *(PI/180); // Wrist 1
-    joint_group_positions_arm[4] =  (34) *(PI/180); // Wrist 2
-    joint_group_positions_arm[5] = (4) *(PI/180);  // Wrist 3
-
-    move_group_arm.setJointValueTarget(joint_group_positions_arm);
-
-    //Editing part - Increase the number by one at "my_plan_arm_1"
-    moveToTarget(move_group_arm, "my_plan_arm_6");
-
-    rclcpp::sleep_for(std::chrono::milliseconds(1000));
-    //-----------------------------------------------------------------------------
 
 //Place object-----------------------------------------
     move_group_arm.detachObject("water_cup");
